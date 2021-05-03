@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>io.playn.tests</groupId>
+  <artifactId>playn-tests-java7-swt-lwjgl</artifactId>
+  <versioning>
+    <versions>
+      <version>2.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20161126161134</lastUpdated>
+  </versioning>
+</metadata>

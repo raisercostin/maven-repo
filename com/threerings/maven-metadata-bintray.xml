@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <plugins>
+    <plugin>
+      <name>TP Convert Flump Libs Plugin</name>
+      <prefix>tripleplay-convert-flump-libs</prefix>
+      <artifactId>tripleplay-convert-flump-libs</artifactId>
+    </plugin>
+  </plugins>
+</metadata>
