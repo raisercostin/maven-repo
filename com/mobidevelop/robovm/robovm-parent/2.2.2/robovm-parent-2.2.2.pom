@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+
+  <groupId>com.mobidevelop.robovm</groupId>
+  <version>2.2.2</version>
+  <artifactId>robovm-parent</artifactId>
+  <name>RoboVM Parent</name>
+  <packaging>pom</packaging>
+  <url>http://github.com/mobidevelop/robovm</url>
+  <description>
+    The RoboVM compiler translates Java bytecode into native ARM or x86 code. Apps run directly on the CPU. No interpreter or virtual machine involved.
+  </description>
+  <inceptionYear>2012</inceptionYear>
+
+  <issueManagement>
+    <url>https://github.com/mobidevelop/robovm</url>
+  </issueManagement>
+
+  <scm>
+    <url>https://github.com/mobidevelop/robovm</url>
+    <connection>scm:git:https://github.com/mobidevelop/robovm.git</connection>
+    <developerConnection>scm:git:https://github.com/mobidevelop/robovm.git</developerConnection>
+    <tag>${project.artifactId}-${project.version}</tag>
+  </scm>
+  <distributionManagement>
+    <repository>
+      <id>bintray</id>
+      <url>https://api.bintray.com/maven/${bintray.user}/${bintray.repo}/${bintray.package}/;publish=0</url>
+    </repository>
+  </distributionManagement>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <createChecksum>false</createChecksum>
+    <github.user>raisercostin</github.user>
+    <github.repo>robovm</github.repo>
+    <github.url>https://github.com/${github.user}/${github.repo}</github.url>
+    <bintray.user>raisercostin</bintray.user>
+    <bintray.repo>maven</bintray.repo>
+    <bintray.package>${github.repo}</bintray.package>
+   </properties>
+
+  <modules>
+    <module>compiler</module>
+    <module>dist</module>
+    <module>plugins/templates</module>
+    <module>plugins/maven</module>    
+    <module>plugins/eclipse</module>
+    <module>plugins/gradle</module>
+<!--    <module>plugins/idea</module>-->
+  </modules>
+   <build>
+     <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.10.3</version>
+          <configuration>
+            <quiet>true</quiet>
+            <show>public</show>
+            <additionalparam>-Xdoclint:all -Xdoclint:-missing</additionalparam>
+            <links>
+              <link>http://docs.oracle.com/javase/7/docs/api/</link>
+              <link>http://threerings.github.io/react/apidocs/</link>
+              <link>http://samskivert.github.io/pythagoras/apidocs/</link>
+            </links>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>2.4</version>
+        </plugin>
+       <plugin>
+      	<artifactId>maven-deploy-plugin</artifactId>
+      	<version>2.8.2</version>
+      </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  <profiles>
+      <profile>
+        <id>release</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+  </profiles>
+  <repositories>
+    <repository>
+      <id>jcenter-bintray</id>
+      <name>Bintray JCenter Maven Repository</name>
+      <layout>default</layout>
+      <url>https://jcenter.bintray.com/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+</project>
