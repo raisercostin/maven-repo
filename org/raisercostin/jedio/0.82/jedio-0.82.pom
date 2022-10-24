@@ -54,7 +54,7 @@
      -->
   </distributionManagement>
   <properties>
-    <createChecksum>false</createChecksum>
+    <createChecksum>true</createChecksum>
     <!--<deployment.scope>compile</deployment.scope>-->
     <dist.release.url>https://github.com/raisercostin/maven-repo.git</dist.release.url>
     <dist.site.url>${dist.url}/sites/${project.groupId}-${project.artifactId}-${project.version}</dist.site.url>
